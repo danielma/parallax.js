@@ -159,10 +159,12 @@
     overScrollFix: false,
 
     refresh: function() {
+      var elementOffset     = this.$element.offset();
+
       this.boxWidth        = this.$element.outerWidth();
       this.boxHeight       = this.$element.outerHeight() + this.bleed * 2;
-      this.boxOffsetTop    = this.$element.offset().top - this.bleed;
-      this.boxOffsetLeft   = this.$element.offset().left;
+      this.boxOffsetTop    = Math.round(elementOffset.top) - this.bleed;
+      this.boxOffsetLeft   = Math.round(elementOffset.left);
       this.boxOffsetBottom = this.boxOffsetTop + this.boxHeight;
 
       var winHeight = Parallax.winHeight;
